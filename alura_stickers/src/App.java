@@ -1,4 +1,6 @@
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -28,11 +30,30 @@ public class App {
             Float rating;
             int estrelas;
 
-            System.out.println("Título: "+ filme.get("title"));
-            System.out.println("Poster: "+filme.get("image"));
+            String titulo = filme.get("title");
+            String urlImagem = filme.get("image");
+
+            System.out.println("Título: "+ titulo);
+            System.out.println("Poster: "+urlImagem);
             System.out.println("\u001b[97;1m \u001b[43;1m Classificação:  " +filme.get("imDbRating")+"\u001b[m");
             rating = Float.valueOf(filme.get("imDbRating"));
             estrelas = Math.round(rating);
+
+
+            //String a ser analisada
+            String urlImagemPoster = new String(urlImagem);
+            //Posição do caracter na string
+            int pos = urlImagemPoster.indexOf("._");
+            //Substring iniciando em 0 até posição do caracter especial
+            String urlImagemAjustada = (urlImagemPoster.substring(0, pos));
+
+
+            InputStream inputStream = new URL(urlImagemAjustada).openStream();
+            String nomeArquivo = titulo + ".png";
+            System.out.println(nomeArquivo);
+
+            var geradora = new GeradoraDeFigurinhas();
+            geradora.cria(inputStream, nomeArquivo, rating);
 
             for (int indice = 1; indice <= estrelas; indice++) {
                 System.out.print("\u2B50");
