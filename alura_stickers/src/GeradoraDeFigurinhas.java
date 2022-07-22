@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class GeradoraDeFigurinhas {
 
-    public void cria(InputStream inputStream,String nomeArquivo, float classificacao) throws Exception{
+    public void cria(InputStream inputStream,String nomeArquivo) throws Exception{
 
         //leitura imagem
         //InputStream inputStream = new fileInputStream(new file("entrada/filme.jpg"));
@@ -28,20 +28,16 @@ public class GeradoraDeFigurinhas {
         graphics.drawImage(imagemOriginal, 0, 0, null);
 
         //configurar a fonte
-        var fonte = new Font(Font.SANS_SERIF, (Font.BOLD) & (Font.CENTER_BASELINE),64);
+        var fonte = new Font(Font.SANS_SERIF, Font.BOLD,64);
         graphics.setColor(Color.yellow);
         graphics.setFont(fonte);
 
         // escrever uma frase na nova imagem
-        if(classificacao >=9) {
-            graphics.drawString("TOPZERA", largura/3 , novaAltura - 100);
-        }else if(classificacao >=8.5 && classificacao <9) {
-            graphics.drawString("MUITO BOM",largura/3 , novaAltura - 100);
-        }else if(classificacao <8.5) {
-            graphics.drawString("BOM", largura/3, novaAltura - 100);
-        }
+
+        graphics.drawString("TOPZERA", largura/3 , novaAltura - 100);
+
         // escrever a nova imagem em um arquivo
-        ImageIO.write(novaImagem, "png", new File("saida/" +nomeArquivo));
+        ImageIO.write(novaImagem, "png", new File(nomeArquivo));
     }
 
 
