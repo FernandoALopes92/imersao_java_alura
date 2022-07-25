@@ -1,0 +1,38 @@
+body{
+    background-color: snow;   
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    width: 40%;
+    height: 320px;
+    margin-top: 10%;
+    border: 6px double #3b8d99;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: white;
+}
+
+.txtAdicionarLinguagem{
+    font-weight: bold;
+    font-size: larger;
+    color: #6b6b83;
+}
+
+
+
+.buttonLink{
+    margin-top: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #aa4b6b;
+    text-align: center;
+    color:#fff;    
+}
+
+.buttonLink:hover {
+    color: #fff;
+    background-color: #6b6b83;
+}

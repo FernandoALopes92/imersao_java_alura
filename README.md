@@ -1,22 +1,41 @@
-# Imersão Java Alura <img src="java_32x32.png">
-
-
+# Imersão Java Alura <img src="./img-readme/java_32x32.png">
 
 [![GitHub license](https://img.shields.io/github/license/FernandoALopes92/imersao_java_alura)](https://github.com/FernandoALopes92/imersao_java_alura/blob/main/LICENSE)
-![!Badge em Desenvolvimento](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-yellow)
-### Projeto criado na semana de Imersão Java Alura. O projeto foi desenvolvido na plataforma intelliJ, utilizamos como framework o Spring,integrando com o MongoDb e Heroku como cloud.
+![!Badge Parte 1 - Concluída](https://img.shields.io/badge/Parte%201-Conclu%C3%ADda-green)
+
 <hr>
+<img src="./img-readme/tela_inicial.png">
+<hr>
+### Projeto criado na semana de Imersão Java Alura. O projeto foi desenvolvido na plataforma intelliJ, utilizamos como ecossistema o Spring,integrando com o MongoDb e Heroku como cloud, para o frontend utilizei NodeJs e Bootstrap
+O CRUD está funcionando no backend, faltando implementar no frontend (Parte a desenvolver)
+<hr>
+
 
 ### **Temas Abordados:**
-- Aula 01 - Consumindo uma api de filmes com Java
-- Aula 02 - Gerando figurinhas para whatsapp
-- Aula 03 - Ligando as pontas, refatoração e orientação a objetos
-- Aula 04 - Criando nossa própria api com Spring
-- Aula 05 - Publicando nossa api no cloud
 
+<!--ts-->
+   * [Aula 01 - Consumindo uma api de filmes com Java](#aula01)
+   * [Aula 02 - Gerando figurinhas para whatsapp](#aula02)
+   * [Aula 03 - Ligando as pontas, refatoração e orientação a objetos](#aula03)
+   * [Aula 04 - Criando nossa própria api com Spring](#aula04)
+   * [Aula 05 - Publicando nossa api no cloud](#aula05) 
+<!--te-->
 <hr>
 
-- **Aula 01 - Consumindo uma api de filmes com Java**
+### ✔️ **Tecnologias Utilizadas**
+- Java
+- InteliJ IDEA
+- Paradigma de orientação a objetos
+- Spring
+- MongoDB
+- Postman
+- Cloud Heroku
+- NodeJs
+- Bootstrap
+<hr>
+
+
+ **<p id="aula01">Aula 01 - Consumindo uma api de filmes com Java<p>** 
 
 Api's Alternantivas ao IMDB
 
@@ -41,7 +60,7 @@ No visual Studio:
 
 <hr>
 
-- **Aula 02 - Gerando figurinhas para whatsapp**
+**<p id="aula02">Aula 02 - Gerando figurinhas para whatsapp<p>**
 
 **links úteis**
 
@@ -54,7 +73,7 @@ https://www.alura.com.br/conteudo/java-heranca-interfaces-polimorfismo
 https://www.alura.com.br/apostila-java-orientacao-objetos/apendice-pacote-java-io
 <hr>
 
-- **Aula 03 - Ligando as pontas, refatoração e orientação a objetos**
+**<p id="aula03">Aula 03 - Ligando as pontas, refatoração e orientação a objetos<p>**
 
 Consumindo uma nova Api
 
@@ -77,7 +96,7 @@ https://www.alura.com.br/artigos/nao-aprender-oo-getters-e-setters
 
 <hr>
 
-- **Aula 04 - Criando nossa própria api com Spring**
+**<p id="aula04">Aula 04 - Criando nossa própria api com Spring<p>**
 
 **Spring:** 
 
@@ -87,7 +106,7 @@ https://www.alura.com.br/artigos/nao-aprender-oo-getters-e-setters
 
 **Configuração inicial (Spring boot):** 
 
-<img src="spring_config.png">
+<img src="./img-readme/spring_config.png">
 
 - clicar em GENERATE
 
@@ -158,11 +177,58 @@ https://maven.apache.org/download.cgi -
 
 https://github.com/abrahamcalf/programming-languages-logos
 
+**Desafios Concluídos**
+
+- Completar o Crud
+- Trazer arrayList em ordem de ranking
+- Retornar o status 201 quando um recurso (linguagem, no nosso caso) for cadastrado através do POST;
+
 
 <hr>
 
-- **Aula 05 - Publicando nossa api no cloud**
+**<p id="aula05">Aula 05 - Publicando nossa api no cloud<p>**
 
+Spring Já tem um teste -Executar o script, baixar os jars, compilar testes, gerar um jar com a aplicação (Napasta Target)
 
+    ./mvnw package
+
+Subir aplicação a partir do Jar
+
+    java -jar nome do jar (linguagens-api-0.0.1-SNAPSHOT.jar
+
+Fazer deployed Heroku
+- Create new app
+- nome: alura-linguagens-api
+- region(padrão)
+
+instalar Heroku CLI ( irá abrir o navegador para logar)
+
+    heroku login 
+
+Configurar um repositorio remoto Heroku.
+
+    heroku git:remote -a alura-linguagens-api
+
+Gravar os dados no repositorio
+
+    git push heroku main
+
+Vai dar erro de versão ideal é Criar o arquivo abaixo antes de mandar para o cloud)
+
+Criar arquivo system.properties na raiz do projeto com o seguinte código:
+
+    java.runtime.version = 17
+
+Subir de novo
+
+    git add system.properties
+    git commit -m "configurando versão java no heroku"
+    git push heroku main
+
+Gerou jar e o link com repositorio Heroku
+
+Na aplicação Mudar a string url para a nova
+
+No Postman colocar link(metodo post) - Cadastrar
 
 
